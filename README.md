@@ -38,17 +38,17 @@ Getting started is simple. Just download the script, make it executable, and run
 
 # Download the script
 ```bash
-wget https://raw.githubusercontent.com/NyxObscura/installer/main/ptero-utils.sh)
+wget https://raw.githubusercontent.com/NyxObscura/installer/main/main.sh)
 ```
 # Make it executable
 ```bash
-chmod +x ptero-utils.sh
+chmod +x main.sh
 ```
 # Run the script with sudo privileges
 ```bash
-sudo ./ptero-utils.sh
+sudo ./main.sh
 ```
-# Or exec it
+# Or paste this to your terminal and you're all set ( Make sure you run as root/sudo privileges! )
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/NyxObscura/installer/refs/heads/main/main.sh)
 ```
