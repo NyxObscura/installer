@@ -35,10 +35,35 @@ Before running this script, please ensure you have the following:
 Getting started is simple. Just paste this command. Make sure u run as `sudo` or `root` privilege.
 
 
-# Paste this to your terminal
+# Clone the repo
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/NyxObscura/installer/refs/heads/main/installer.sh)
+git clone https://github.com/NyxObscura/installer.git
+cd installer
 ```
+# Install build essential
+```bash
+sudo apt update && sudo apt install build-essential -y
+```
+# Give permission
+```bash
+chmod +x main.x
+```
+# Run it
+```bash
+./main.x
+```
+
+# 🖥️ Supported Operating Systems
+
+| OS / Distro | Version | Architecture | Status |
+|---|---|---|---|
+| Ubuntu | 20.04 / 22.04 | x86_64 | ✅ Tested |
+| Debian | 10 / 11 / 12 | x86_64 | ✅ Tested | 
+| Debian | 10+ | ARM64 | ⚠️ Partial (compile required) |
+| AlmaLinux / Rocky | 8+ | x86_64 | ✅ Tested |
+| CentOS	7 / 8 | x86_64 | ✅ Tested |
+| Termux (Android) | N/A | ARM64 | ✅ (must compile with Termux shc) |
+| Arch Linux | Rolling | x86_64 | ✅ Untested but expected to work |
 
 # Menu Options Explained
 The script provides a clear, numbered menu for all its functions:
