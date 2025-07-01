@@ -89,12 +89,12 @@ install_blueprint() {
     cd /var/www/pterodactyl || exit
     wget -q "$(curl -s https://api.github.com/repos/BlueprintFramework/framework/releases/latest | grep 'browser_download_url' | cut -d '"' -f 4)" -O release.zip
     show_progress 55 "Extracting and preparing Blueprint..."
-    unzip -o release.zip
+    yes | unzip release.zip
     touch .blueprintrc && rm release.zip
     echo 'WEBUSER="www-data";OWNERSHIP="www-data:www-data";USERSHELL="/bin/bash";' > .blueprintrc
     chmod +x blueprint.sh
     show_progress 70 "Running Blueprint Framework installation..."
-    yes | ./blueprint.sh > /dev/null 2>&1
+    yes | bash blueprint.sh > /dev/null 2>&1
     clear
     echo -e "${GREEN}${BOLD}Blueprint Framework Installation Complete!${RESET}"
     sleep 3
