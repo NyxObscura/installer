@@ -8,8 +8,8 @@
 
 # --- KONFIGURASI ---
 
-SCRIPT_URL="https://raw.githubusercontent.com/NyxObscura/installer/main/obfuscated.sh"
-EXPECTED_HASH="99f0e300f89f9ea5b1d35560e0f2c2af0989da9423294bb7244dec235bcf2be7" # <-- GANTI INI
+SCRIPT_URL="https://raw.githubusercontent.com/NyxObscura/installer/main/main.sh"
+EXPECTED_HASH="42a898723bdc0f97325c8020dca2cd2cf3acc6d9b04febd3c5262445add9da5a" # <-- GANTI INI
 
 # --- VARIABEL WARNA ---
 RED='\033[0;31m'
