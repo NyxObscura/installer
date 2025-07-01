@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin.bash
 
 # =================================================================
 # Installer Loader oleh NyxObscura
@@ -9,7 +9,7 @@
 # --- KONFIGURASI ---
 
 SCRIPT_URL="https://raw.githubusercontent.com/NyxObscura/installer/main/main.sh"
-EXPECTED_HASH="42a898723bdc0f97325c8020dca2cd2cf3acc6d9b04febd3c5262445add9da5a" # <-- GANTI INI
+EXPECTED_HASH="42a898723bdc0f97325c8020dca2cd2cf3acc6d9b04febd3c5262445add9da5a"
 
 # --- VARIABEL WARNA ---
 RED='\033[0;31m'
@@ -21,25 +21,30 @@ RESET='\033[0m'
 # --- LOGIKA UTAMA ---
 echo -e "${CYAN}${BOLD}Mempersiapkan installer...${RESET}"
 
+# Buat file sementara yang aman untuk menampung skrip
+# Opsi --tmpdir memastikan file dibuat di lokasi yang umum seperti /tmp
+TMP_FILE=$(mktemp -t installer.XXXXXX.sh)
 
-SCRIPT_CONTENT=$(curl -sL "$SCRIPT_URL")
+# Pastikan file sementara dihapus saat skrip selesai (baik berhasil maupun gagal)
+trap 'rm -f "$TMP_FILE"' EXIT
 
-
-if [ -z "$SCRIPT_CONTENT" ]; then
+# Unduh skrip ke file sementara dan periksa status unduhan
+if ! curl -sL "$SCRIPT_URL" -o "$TMP_FILE"; then
     echo -e "${RED}${BOLD}Gagal mengunduh skrip installer. Periksa koneksi internet atau URL.${RESET}"
     exit 1
 fi
 
+# Hitung hash dari file yang sudah diunduh
+ACTUAL_HASH=$(sha256sum "$TMP_FILE" | awk '{print $1}')
 
-ACTUAL_HASH=$(echo -n "$SCRIPT_CONTENT" | sha256sum | awk '{print $1}')
-
-
+# Bandingkan hash
 if [[ "$ACTUAL_HASH" == "$EXPECTED_HASH" ]]; then
     echo -e "${GREEN}Verifikasi integritas berhasil.${RESET}"
     echo -e "${CYAN}Menjalankan skrip...${RESET}"
-    echo 
-    
-    bash <(echo "$SCRIPT_CONTENT")
+    echo
+
+    # Jalankan skrip dari file sementara
+    bash "$TMP_FILE"
 else
     echo -e "${RED}${BOLD}==================== PERINGATAN KEAMANAN ====================${RESET}"
     echo -e "${RED}Hash skrip tidak cocok! Eksekusi dibatalkan.${RESET}"
