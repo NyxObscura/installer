@@ -7,7 +7,7 @@
 
 A comprehensive and robust Bash script designed to simplify the management, updating, and theming of your **Pterodactyl Panel**. Developed by **NyxObscura** to automate common but complex tasks through a simple, interactive menu.
 
-![Script Menu Screenshot](https://cdn.obscuraworks.com/file/media_1751330272455.jpg)
+![Script Menu Screenshot](https://cdn.obscuraworks.com/file/media_1751333873051.jpg)
 
 ---
 
