@@ -34,21 +34,10 @@ Before running this script, please ensure you have the following:
 
 ## Installation & Usage
 
-Getting started is simple. Just download the script, make it executable, and run it with `sudo`.
+Getting started is simple. Just paste this command. Make sure u run as `sudo` or `root` privilege.
 
-# Download the script
-```bash
-wget https://raw.githubusercontent.com/NyxObscura/installer/main/installer.sh
-```
-# Make it executable
-```bash
-chmod +x installer.sh
-```
-# Run the script with sudo privileges
-```bash
-sudo ./installer.sh
-```
-# Or paste this to your terminal and you're all set ( Make sure you run as root/sudo privileges! )
+
+# Paste this to your terminal
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/NyxObscura/installer/refs/heads/main/installer.sh)
 ```
