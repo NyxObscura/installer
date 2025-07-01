@@ -3,6 +3,7 @@
 # =================================================================
 # Installer Loader oleh NyxObscura
 # Skrip ini memverifikasi integritas sebelum eksekusi.
+# 2023 - 2025
 # =================================================================
 
 # --- KONFIGURASI ---
