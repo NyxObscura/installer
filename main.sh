@@ -78,26 +78,39 @@ update_panel() {
 
 install_blueprint() {
     confirm_action "You are about to install the Blueprint Framework." || return
-    show_progress 10 "Checking and installing Node.js v20 (Blueprint requirement)..."
-    if ! command -v node > /dev/null || [[ "$(node -v)" != "v20."* ]]; then
-      curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-      sudo apt-get install -y nodejs
-    fi
-    show_progress 25 "Installing Yarn globally..."
-    npm i -g yarn
-    show_progress 40 "Downloading Blueprint Framework..."
-    cd /var/www/pterodactyl || exit
-    wget "$(curl -s https://api.github.com/repos/BlueprintFramework/framework/releases/latest | grep 'browser_download_url' | cut -d '"' -f 4)" -O release.zip
-    show_progress 55 "Extracting and preparing Blueprint..."
-    yes | unzip release.zip
-    touch .blueprintrc && rm release.zip
-    echo 'WEBUSER="www-data";OWNERSHIP="www-data:www-data";USERSHELL="/bin/bash";' > .blueprintrc
-    chmod +x blueprint.sh
-    show_progress 70 "Running Blueprint Framework installation..."
-    yes | bash blueprint.sh
-    clear
-    echo -e "${GREEN}${BOLD}Blueprint Framework Installation Complete!${RESET}"
-    sleep 3
+
+    while true; do
+        show_progress 10 "Checking and installing Node.js v20 (Blueprint requirement)..."
+        if ! command -v node > /dev/null || [[ "$(node -v)" != "v20."* ]]; then
+            curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+            sudo apt-get install -y nodejs
+        fi
+
+        show_progress 25 "Installing Yarn globally..."
+        npm i -g yarn
+
+        show_progress 40 "Downloading Blueprint Framework..."
+        cd /var/www/pterodactyl || exit
+        wget "$(curl -s https://api.github.com/repos/BlueprintFramework/framework/releases/latest | grep 'browser_download_url' | cut -d '"' -f 4)" -O release.zip
+
+        show_progress 55 "Extracting and preparing Blueprint..."
+        yes | unzip release.zip
+        rm -f release.zip
+        echo 'WEBUSER="www-data";OWNERSHIP="www-data:www-data";USERSHELL="/bin/bash";' > .blueprintrc
+        chmod +x blueprint.sh
+
+        show_progress 70 "Running Blueprint Framework installation..."
+        if yes | bash blueprint.sh; then
+            clear
+            echo -e "${GREEN}${BOLD}Blueprint Framework Installation Complete!${RESET}"
+            sleep 3
+            break
+        else
+            echo -e "${RED}Blueprint installation failed. Cleaning up and retrying...${RESET}"
+            rm -rf blueprint .blueprint blueprint.sh slate.blueprint .blueprintrc
+            sleep 2
+        fi
+    done
 }
 # --- BLUEPRINT-BASED THEME FUNCTIONS ---
 
