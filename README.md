@@ -11,7 +11,7 @@ A comprehensive and robust Bash script designed to simplify the management, upda
 
 ---
 
-## ► Key Features
+## Key Features
 
 -   ✅ **Update Panel:** Automatically update your Pterodactyl Panel to the latest version.
 -   🛠️ **Blueprint Integration:** Install or re-install the Blueprint Framework, the extension manager for Pterodactyl.
@@ -22,7 +22,7 @@ A comprehensive and robust Bash script designed to simplify the management, upda
 
 ---
 
-## ► Prerequisites
+## Prerequisites
 
 Before running this script, please ensure you have the following:
 
@@ -32,13 +32,13 @@ Before running this script, please ensure you have the following:
 
 ---
 
-## ► Installation & Usage
+## Installation & Usage
 
 Getting started is simple. Just download the script, make it executable, and run it with `sudo`.
 
 # Download the script
 ```bash
-wget https://raw.githubusercontent.com/NyxObscura/installer/main/main.sh)
+wget https://raw.githubusercontent.com/NyxObscura/installer/main/installer.sh)
 ```
 # Make it executable
 ```bash
@@ -50,9 +50,10 @@ sudo ./main.sh
 ```
 # Or paste this to your terminal and you're all set ( Make sure you run as root/sudo privileges! )
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/NyxObscura/installer/refs/heads/main/main.sh)
+bash <(curl -s https://raw.githubusercontent.com/NyxObscura/installer/refs/heads/main/installer.sh)
 ```
-► Menu Options Explained
+
+# Menu Options Explained
 The script provides a clear, numbered menu for all its functions:
 | Option | Description | Notes |
 |---|---|---|
@@ -62,23 +63,23 @@ The script provides a clear, numbered menu for all its functions:
 | 10 | UNINSTALL ALL THEMES | ⚠️ Use with extreme caution! This is a full panel reset. It reverts all frontend changes to the Pterodactyl default. |
 | 11 | Exit | Exits the script. |
 
-⚠️ Disclaimer
+## ⚠️ Disclaimer
 This script performs significant system-level operations, including installing packages, modifying panel files, and running database migrations.
  * Use this script at your own risk.
  * Always create a full backup of your server (/var/www/pterodactyl directory and database) before using any of the installation or reset functions.
 The authors are not responsible for any data loss or damage to your panel installation.
 
-► Support & Contact
+# Support & Contact
 If you encounter any issues, have questions, or need support, feel free to reach out.
  * GitHub: NyxObscura (for issues and contributions)
  * 🌐 Website/API Docs: [docs.obscuraworks.com](https://docs.obscuraworks.com) 
  * 📧 Email: [service@obscuraworks.com](mailto:service@obscuraworks.com)
  * 💬 WhatsApp: [+62 851-8334-3636](https://wa.me/6285183343636)
  
-► License
+# License
 This project is distributed under the MIT License. See the LICENSE file for more information.
 
-► Acknowledgments
+# Acknowledgments
  * Pterodactyl Panel
  * Blueprint Framework
  * All the respective theme creators.
