@@ -274,6 +274,7 @@ while true; do
     echo -e "  2. Install/Re-install Blueprint Framework"
     echo ""
     echo -e "${GREEN}--- Themes (Blueprint-based) ---${RESET}"
+    echo -e "${RED}${BOLD}PENTING: Sebelum menginstal tema Nebula/Slate (Opsi 3 & 5), Anda HARUS menginstal Blueprint Framework terlebih dahulu (Opsi 2). Jika tidak, proses instalasi akan gagal.${RESET}"
     echo -e "  3. Install Nebula Theme"
     echo -e "  4. Uninstall Nebula Theme"
     echo -e "  5. Install Slate Theme"
