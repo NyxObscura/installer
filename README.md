@@ -42,11 +42,11 @@ wget https://raw.githubusercontent.com/NyxObscura/installer/main/installer.sh
 ```
 # Make it executable
 ```bash
-chmod +x main.sh
+chmod +x installer.sh
 ```
 # Run the script with sudo privileges
 ```bash
-sudo ./main.sh
+sudo ./installer.sh
 ```
 # Or paste this to your terminal and you're all set ( Make sure you run as root/sudo privileges! )
 ```bash
