@@ -80,26 +80,25 @@ install_blueprint() {
     confirm_action "You are about to install the Blueprint Framework." || return
     show_progress 10 "Checking and installing Node.js v20 (Blueprint requirement)..."
     if ! command -v node > /dev/null || [[ "$(node -v)" != "v20."* ]]; then
-      curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - > /dev/null 2>&1
-      sudo apt-get install -y nodejs > /dev/null 2>&1
+      curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+      sudo apt-get install -y nodejs
     fi
     show_progress 25 "Installing Yarn globally..."
-    npm i -g yarn > /dev/null 2>&1
+    npm i -g yarn
     show_progress 40 "Downloading Blueprint Framework..."
     cd /var/www/pterodactyl || exit
-    wget -q "$(curl -s https://api.github.com/repos/BlueprintFramework/framework/releases/latest | grep 'browser_download_url' | cut -d '"' -f 4)" -O release.zip
+    wget "$(curl -s https://api.github.com/repos/BlueprintFramework/framework/releases/latest | grep 'browser_download_url' | cut -d '"' -f 4)" -O release.zip
     show_progress 55 "Extracting and preparing Blueprint..."
     yes | unzip release.zip
     touch .blueprintrc && rm release.zip
     echo 'WEBUSER="www-data";OWNERSHIP="www-data:www-data";USERSHELL="/bin/bash";' > .blueprintrc
     chmod +x blueprint.sh
     show_progress 70 "Running Blueprint Framework installation..."
-    yes | bash blueprint.sh > /dev/null 2>&1
+    yes | bash blueprint.sh
     clear
     echo -e "${GREEN}${BOLD}Blueprint Framework Installation Complete!${RESET}"
     sleep 3
 }
-
 # --- BLUEPRINT-BASED THEME FUNCTIONS ---
 
 install_nebula() {
