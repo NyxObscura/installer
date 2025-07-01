@@ -38,7 +38,7 @@ Getting started is simple. Just download the script, make it executable, and run
 
 # Download the script
 ```bash
-wget https://raw.githubusercontent.com/NyxObscura/installer/main/installer.sh)
+wget https://raw.githubusercontent.com/NyxObscura/installer/main/installer.sh
 ```
 # Make it executable
 ```bash
