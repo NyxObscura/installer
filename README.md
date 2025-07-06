@@ -53,6 +53,15 @@ chmod +x main.x
 ./main.x
 ```
 
+---
+
+# Automatic
+```bash
+bash <(curl -s https://raw.githubusercontent.com/NyxObscura/installer/refs/heads/main/installer.sh)
+```
+
+---
+
 # 🖥️ Supported Operating Systems
 
 | OS / Distro | Version | Architecture | Status |
