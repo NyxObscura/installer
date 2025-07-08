@@ -34,8 +34,13 @@ Before running this script, please ensure you have the following:
 
 Getting started is simple. Just paste this command. Make sure u run as `sudo` or `root` privilege.
 
+# Automatic Options -- using curl
+```bash
+bash <(curl -s https://raw.githubusercontent.com/NyxObscura/installer/refs/heads/main/installer.sh)
+```
+---
 
-# Clone the repo
+# Manual Options -- Clone the repo
 ```bash
 git clone https://github.com/NyxObscura/installer.git
 cd installer
@@ -51,13 +56,6 @@ chmod +x main.x
 # Run it
 ```bash
 ./main.x
-```
-
----
-
-# Automatic
-```bash
-bash <(curl -s https://raw.githubusercontent.com/NyxObscura/installer/refs/heads/main/installer.sh)
 ```
 
 ---
