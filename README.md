@@ -38,25 +38,6 @@ Getting started is simple. Just paste this command. Make sure u run as `sudo` or
 ```bash
 bash <(curl -s https://raw.githubusercontent.com/NyxObscura/installer/refs/heads/main/installer.sh)
 ```
----
-
-# Manual Options -- Clone the repo
-```bash
-git clone https://github.com/NyxObscura/installer.git
-cd installer
-```
-# Install build essential
-```bash
-sudo apt update && sudo apt install build-essential -y
-```
-# Give permission
-```bash
-chmod +x main.x
-```
-# Run it
-```bash
-./main.x
-```
 
 ---
 
